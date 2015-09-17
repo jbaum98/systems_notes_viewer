@@ -154,7 +154,6 @@ code {
     font-size: 15px;
     border: 1px solid $grey-color-light;
     border-radius: 3px;
-    /*background-color: #eef;*/
 }
 
 code {
@@ -169,6 +168,7 @@ pre {
         border: 0;
         padding-right: 0;
         padding-left: 0;
+        font-style: normal;
     }
 }
 

@@ -77,6 +77,30 @@ li {
 
 
 /**
+ * Definition Lists
+ */
+dt {
+    vertical-align: top;
+    margin: 0;
+    width: 18%;
+    text-align: right;
+    font-weight: bold;
+    color: black;
+    margin-right: 0.5%;
+    display: inline-block;
+    &:after {
+        content: ":";
+    }
+}
+
+dd {
+    width: 80%;
+    display: inline-block;
+}
+
+
+
+/**
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {

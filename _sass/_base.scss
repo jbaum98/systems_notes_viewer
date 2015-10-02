@@ -104,13 +104,16 @@ dd {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 300;
+  font-weight: 300;
+  & code.highlighter-rouge {
+    font-weight: 600;
+    border: none;
+  }
 }
 
 
-
-/**
- * Links
+  /**
+   * Links
  */
 a {
     color: $brand-color;
@@ -173,6 +176,29 @@ pre {
 }
 
 
+figure.code figcaption {
+    position: relative;
+    text-align: center;
+    font-size: 15px;
+    line-height: 2em;
+    font-weight: 900;
+    margin-bottom: 0;
+    /*-moz-border-radius-topleft: 5px;*/
+    /*-webkit-border-top-left-radius: 5px;*/
+    border-top-left-radius: 5px;
+    /*-moz-border-radius-topright: 5px;*/
+    /*-webkit-border-top-right-radius: 5px;*/
+    border-top-right-radius: 5px;
+    font-family: monospace;
+    background-color: #aaaaaa;
+    color: white;
+    border: 1px solid #c5c5c5;
+    border-top-color: #d5d5d5;
+    border-bottom: 0;
+    & + pre.highlight {
+        border-radius: 0 0 3px 3px;
+    }
+}
 
 /**
  * Wrapper
@@ -226,3 +252,4 @@ pre {
         }
     }
 }
+

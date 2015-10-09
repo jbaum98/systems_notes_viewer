@@ -30,8 +30,9 @@ module Rouge
           return
         end
 
-        if is_comment?(token) and (matches = text(token).match /<(\S+)>/)
-          matches.captures.first
+        if is_comment?(token)
+          filename = text(token).strip.split(/ /)[1]
+          filename unless filename = '~' # this how we call it off
         end
       end
 

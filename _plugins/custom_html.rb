@@ -24,14 +24,19 @@ module Rouge
       private
 
       def get_filename(tokens)
-        token1, token2 = tokens.next, tokens.next
-
-        if first_line_comment?(token1, token2)
-          matches = text(token1).match /<([\S ]+)>/
-          if matches
-            matches.captures.first
-          end
+        begin
+          token = tokens.next
+        rescue StopIteration
+          return
         end
+
+        if is_comment?(token) and (matches = text(token).match /<(\S+)>/)
+          matches.captures.first
+        end
+      end
+
+      def is_comment?(token)
+        type(token) == Rouge::Token::Tokens::Comment::Single
       end
 
       def type(token)
@@ -42,12 +47,6 @@ module Rouge
         token[1]
       end
 
-      def first_line_comment?(token1, token2)
-        comment = Rouge::Token::Tokens::Comment::Single
-        plaintext = Rouge::Token::Tokens::Text
-
-        type(token1) == comment and type(token2) == plaintext and text(token2) == "\n"
-      end
     end
   end
 end
